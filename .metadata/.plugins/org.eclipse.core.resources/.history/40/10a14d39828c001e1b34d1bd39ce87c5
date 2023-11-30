@@ -1,0 +1,75 @@
+package onlineBookStore;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BookList {
+
+	int count = 0;
+	double amount = 0.0;
+	double sum = 0.0;
+	static Scanner sc = new Scanner(System.in);
+
+	ArrayList<Book> books = new ArrayList<Book>();
+
+//	public BookList() {
+//		books.add(new Book(1,"agni","apj",100));
+//		books.add(new Book(2,"b","a",99.99));
+//		books.add(new Book(3,"c","pj",80));
+//		books.add(new Book(4,"d","ap",79));
+//		books.add(new Book(5,"e","aj",200));
+//	}
+
+	public void purchase() {
+
+		System.out.println("Enter Book Id: ");
+		int bookId = sc.nextInt();
+		System.out.println("Enter Book Name: ");
+		String bookName = sc.next();
+		System.out.println("Enter Book Author: ");
+		String author = sc.next();
+		System.out.println("Enter Book Price: ");
+		double price = sc.nextDouble();
+		System.out.println("Discount: ");
+//	    double dis = sc.nextDouble();
+		double total = price;
+		books.add(new Book(bookId, bookName, author, price, total));
+		count++;
+	}
+
+	public void slip() {
+		System.out.println("Total amount");
+		for (Book b : books) {
+			System.out.println(b.getBookName() + " " + b.getAuthor() + " " + b.getBookId() + " " + b.getPrice() + " "
+					+ b.getTotal());
+			sum += b.getTotal();
+		}
+	}
+
+	public void payment() {
+		System.out.println("Customer Pays: ");
+		amount = sc.nextDouble();
+		double balance = amount - sum;
+		System.out.println("Balance is: " + balance);
+	}
+	
+	public void displayBooks() {
+		if (books.size() == 0) {
+			System.out.println("No Books Available");
+		}
+
+		for (Book b : books) {
+			System.out.println(b);
+		}
+	}
+
+	public void removeBook() {
+		if (books.size() > 0) {
+			books.clear();
+			System.out.println("All books deleted");
+		} else {
+			System.out.println("No books found");
+		}
+	}
+
+}

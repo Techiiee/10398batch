@@ -1,0 +1,15 @@
+package usermanagementsystem;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public class UserService {
+	public void viewUser() throws ClassNotFoundException, SQLException {
+		List<User> userlist = new UserDaoImplementation().findAll();
+
+		for (User u : userlist) {
+			System.out.println(u);
+		}
+
+	}
+}

@@ -1,0 +1,38 @@
+package onlineBookStore;
+
+import java.util.ArrayList;
+
+public class BookList {
+ 
+	ArrayList<Book> books=new ArrayList<Book>();
+	public BookList() {
+		books.add(new Book(1,"agni","apj"));
+		books.add(new Book(2,"b","a"));
+		books.add(new Book(3,"c","pj"));
+		books.add(new Book(4,"d","ap"));
+		books.add(new Book(5,"e","aj"));
+	}
+	
+	public void buy(){
+		
+		
+	}
+	public void displayBooks() {
+		if(books.size() == 0) {
+			System.out.println("No Books Available");
+		}
+		
+		for(Book b: books) {
+			System.out.println(b);
+		}
+	}
+	
+	public void addBook() {
+		
+		
+	}
+	public void removeBook() {
+		
+	}
+	
+}

@@ -1,0 +1,38 @@
+package decoratorDesignPattern;
+
+import java.util.Scanner;
+
+public class FoodMain {
+	private static int choice;
+
+	public static void main(String[] args) {
+		do {
+			System.out.print("========= Food Menu ============ \n");
+			System.out.print("            1. Vegetarian Food.   \n");
+			System.out.print("            2. Non-Vegetarian Food.\n");
+			System.out.print("            3. Chineese Food.      \n");
+			System.out.print("            4. Exit                \n");
+			System.out.print("Enter your choice: ");
+			Scanner sc = new Scanner(System.in);
+			choice = sc.nextInt();
+			switch (choice) {
+			case 1: {
+				VegFood vf = new VegFood();
+				System.out.println(vf.prepareFood());
+				System.out.println(vf.foodPrice());
+			}
+				break;
+			case 2: {
+				Food f1 = new NonVeg((Food) new VegFood());
+				System.out.println(f1.prepareFood());
+				System.out.println(f1.foodPrice());
+			 }
+				break;
+			default: {
+				System.out.println("Other than these no food available");
+			  }
+//				return;
+			}
+		} while (choice != 4);
+	}
+}

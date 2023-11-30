@@ -1,0 +1,53 @@
+package onlineBookStore;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class BookList {
+	static Scanner sc=new Scanner(System.in);
+ 
+	ArrayList<Book> books=new ArrayList<Book>();
+	public BookList() {
+		books.add(new Book(1,"agni","apj"));
+		books.add(new Book(2,"b","a"));
+		books.add(new Book(3,"c","pj"));
+		books.add(new Book(4,"d","ap"));
+		books.add(new Book(5,"e","aj"));
+	}
+	
+	public void buy(){
+		
+		
+	}
+	public void displayBooks() {
+		if(books.size() == 0) {
+			System.out.println("No Books Available");
+		}
+		
+		for(Book b: books) {
+			System.out.println(b);
+		}
+	}
+	
+	public void addBook() {
+		System.out.println("Enter student Id: ");
+		int bookId=sc.nextInt();
+		System.out.println("Enter student Name: ");
+		String bookName=sc.next();
+		System.out.println("Enter student Address: ");
+		String author=sc.next();
+		Book b=new Book(bookId,bookName,author);
+		books.add(b);	
+	}
+	
+	public void removeBook() {
+		if(books.size() > 0) {
+			books.clear();
+			System.out.println("All books deleted");
+		}else {
+			System.out.println("No books found");
+		}
+	}
+	
+}
